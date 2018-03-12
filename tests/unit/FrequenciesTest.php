@@ -136,6 +136,79 @@ class FrequenciesTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($frequencies->expression, '0 1,12 * * *');
     }
 
+    /** @test */
+    public function able_set_days()
+    {
+        $frequencies = $this->frequencies();
+        $frequencies->days(1, 3, 5);
+
+        $this->assertEquals($frequencies->expression, '* * * * 1,3,5');
+    }
+
+    /** @test */
+    public function able_set_monday()
+    {
+        $frequencies = $this->frequencies();
+        $frequencies->monday();
+
+        $this->assertEquals($frequencies->expression, '* * * * 1');
+    }
+
+    /** @test */
+    public function able_set_tuesday()
+    {
+        $frequencies = $this->frequencies();
+        $frequencies->tuesday();
+
+        $this->assertEquals($frequencies->expression, '* * * * 2');
+    }
+
+    /** @test */
+    public function able_set_wednesday()
+    {
+        $frequencies = $this->frequencies();
+        $frequencies->wednesday();
+
+        $this->assertEquals($frequencies->expression, '* * * * 3');
+    }
+
+    /** @test */
+    public function able_set_thursday()
+    {
+        $frequencies = $this->frequencies();
+        $frequencies->thursday();
+
+        $this->assertEquals($frequencies->expression, '* * * * 4');
+    }
+
+    /** @test */
+    public function able_set_friday()
+    {
+        $frequencies = $this->frequencies();
+        $frequencies->friday();
+
+        $this->assertEquals($frequencies->expression, '* * * * 5');
+    }
+
+    /** @test */
+    public function able_set_saturday()
+    {
+        $frequencies = $this->frequencies();
+        $frequencies->saturday();
+
+        $this->assertEquals($frequencies->expression, '* * * * 6');
+    }
+
+    /** @test */
+    public function able_set_sunday()
+    {
+        $frequencies = $this->frequencies();
+        $frequencies->sunday();
+
+        $this->assertEquals($frequencies->expression, '* * * * 7');
+    }
+
+
     protected function frequencies()
     {
         $frequencies = $this->getMockForTrait(Frequencies::class);

@@ -58,6 +58,46 @@ trait Frequencies
         return $this->replaceIntoExpression(1, [0, "{$firstHour},{$lastHour}"]);
     }
 
+    public function days()
+    {
+        return $this->replaceIntoExpression(5, implode(',', func_get_args() ?: ['*']));
+    }
+
+    public function monday()
+    {
+        return $this->days(1);
+    }
+
+    public function tuesday()
+    {
+        return $this->days(2);
+    }
+
+    public function wednesday()
+    {
+        return $this->days(3);
+    }
+
+    public function thursday()
+    {
+        return $this->days(4);
+    }
+
+    public function friday()
+    {
+        return $this->days(5);
+    }
+
+    public function saturday()
+    {
+        return $this->days(6);
+    }
+
+    public function sunday()
+    {
+        return $this->days(7);
+    }
+
     public function replaceIntoExpression($position, $value)
     {
         $value = (array)$value;
