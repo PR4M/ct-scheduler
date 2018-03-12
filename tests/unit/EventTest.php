@@ -6,10 +6,15 @@
  * Time: 6:36 PM
  */
 
+use App\Scheduler\Event;
+
 class EventTest extends \PHPUnit\Framework\TestCase
 {
-    public function test_sample_test()
+    /** @test */
+    public function event_has_default_cron_expression()
     {
-        $this->assertTrue(true);
+        $event = $this->getMockForAbstractClass(Event::class);
+
+        $this->assertEquals($event->expression, '* * * * *');
     }
 }
