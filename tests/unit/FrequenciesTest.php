@@ -82,6 +82,42 @@ class FrequenciesTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($frequencies->expression, '*/30 * * * *');
     }
 
+    /** @test */
+    public function able_set_hourly_at()
+    {
+        $frequencies = $this->frequencies();
+        $frequencies->hourlyAt(45);
+
+        $this->assertEquals($frequencies->expression, '45 * * * *');
+    }
+
+    /** @test */
+    public function able_set_hourly()
+    {
+        $frequencies = $this->frequencies();
+        $frequencies->hourly(45);
+
+        $this->assertEquals($frequencies->expression, '1 * * * *');
+    }
+
+    /** @test */
+    public function able_set_daily_at()
+    {
+        $frequencies = $this->frequencies();
+        $frequencies->dailyAt(12, 44);
+
+        $this->assertEquals($frequencies->expression, '44 12 * * *');
+    }
+
+    /** @test */
+    public function able_set_daily()
+    {
+        $frequencies = $this->frequencies();
+        $frequencies->daily();
+
+        $this->assertEquals($frequencies->expression, '0 0 * * *');
+    }
+
     protected function frequencies()
     {
         $frequencies = $this->getMockForTrait(Frequencies::class);
