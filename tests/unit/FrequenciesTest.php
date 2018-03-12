@@ -11,6 +11,33 @@ use App\Scheduler\Frequencies;
 class FrequenciesTest extends \PHPUnit\Framework\TestCase
 {
     /** @test */
+    public function able_replace_into_expression_at_position()
+    {
+        $frequencies = $this->frequencies();
+        $frequencies->replaceIntoExpression(1, 1);
+
+        $this->assertEquals($frequencies->expression, '1 * * * *');
+    }
+
+    /** @test */
+    public function able_replace_into_expression_by_chaining()
+    {
+        $frequencies = $this->frequencies();
+        $frequencies->replaceIntoExpression(1, 1)->replaceIntoExpression(2, 2);
+
+        $this->assertEquals($frequencies->expression, '1 2 * * *');
+    }
+
+    /** @test */
+    public function able_replace_into_expression_with_array()
+    {
+        $frequencies = $this->frequencies();
+        $frequencies->replaceIntoExpression(1, [1, 2]);
+
+        $this->assertEquals($frequencies->expression, '1 2 * * *');
+    }
+
+    /** @test */
     public function able_set_plain_cron_expression()
     {
         $frequencies = $this->frequencies();
