@@ -20,23 +20,17 @@ trait Frequencies
 
     public function everyMinute()
     {
-        $this->expression = '* * * * *';
-
-        return $this;
+        return $this->cron($this->expression);
     }
 
     public function everyTenMinutes()
     {
-        $this->expression = '*/10 * * * *';
-
-        return $this;
+        return $this->replaceIntoExpression(1, '*/10');
     }
 
     public function everyThirtyMinutes()
     {
-        $this->expression = '*/30 * * * *';
-
-        return $this;
+        return $this->replaceIntoExpression(1, '*/30');
     }
 
     public function replaceIntoExpression($position, $value)
@@ -45,6 +39,7 @@ trait Frequencies
 
         $expression = explode(' ', $this->expression);
         array_splice($expression, $position - 1, 1, $value);
+        $expression = array_slice($expression, 0, 5);
 
         return $this->cron(implode(' ', $expression));
     }

@@ -38,6 +38,15 @@ class FrequenciesTest extends \PHPUnit\Framework\TestCase
     }
 
     /** @test */
+    public function able_replace_past_the_end_of_an_expression()
+    {
+        $frequencies = $this->frequencies();
+        $frequencies->replaceIntoExpression(5, [1, 2]);
+
+        $this->assertEquals($frequencies->expression, '* * * * 1');
+    }
+
+    /** @test */
     public function able_set_plain_cron_expression()
     {
         $frequencies = $this->frequencies();
