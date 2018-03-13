@@ -10,7 +10,6 @@ namespace App\Scheduler;
 
 
 use Carbon\Carbon;
-use phpDocumentor\Reflection\Types\This;
 
 class Kernel
 {
@@ -26,6 +25,18 @@ class Kernel
     public function add(Event $event)
     {
         $this->events[] = $event;
+
+        return $event;
+    }
+
+    public function run()
+    {
+        foreach ($this->getEvents() as $event) {
+            if (!$event->isDueToRun($this->getDate())) {
+                continue;
+            }
+            $event->handle();
+        }
     }
 
     public function setDate(Carbon $date)
@@ -35,10 +46,10 @@ class Kernel
 
     public function getDate()
     {
-        if(!$this->date) {
+        if (!$this->date) {
             return Carbon::now();
         }
-        
+
         return $this->date;
     }
 }

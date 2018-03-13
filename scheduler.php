@@ -6,9 +6,14 @@
  * Time: 6:45 PM
  */
 
+use App\Scheduler\Kernel;
 use App\Events\SomeEvent;
 
 require_once 'vendor/autoload.php';
 
+$kernel = new Kernel;
 
+$kernel->add(new SomeEvent())->daily();
+
+$kernel->run();
 

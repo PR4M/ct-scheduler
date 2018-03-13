@@ -262,6 +262,15 @@ class FrequenciesTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($frequencies->expression, '0 0 10 * *');
     }
 
+    /** @test */
+    public function replacement_works_correctly()
+    {
+        $frequencies = $this->frequencies();
+        $frequencies->daily()->daily();
+
+        $this->assertEquals($frequencies->expression, '0 0 * * *');
+    }
+
     protected function frequencies()
     {
         $frequencies = $this->getMockForTrait(Frequencies::class);
