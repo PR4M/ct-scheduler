@@ -98,6 +98,33 @@ trait Frequencies
         return $this->days(7);
     }
 
+    public function weekdays()
+    {
+        return $this->days(1, 2, 3, 4, 5);
+    }
+
+    public function weekends()
+    {
+        return $this->days(6, 7);
+    }
+
+    public function at($hour = 0, $minute = 0)
+    {
+        return $this->dailyAt($hour, $minute);
+        // or
+        /* return $this->replaceIntoExpression(1, [$minute, $hour]); */
+    }
+
+    public function monthly()
+    {
+        return $this->monthlyOn(1);
+    }
+
+    public function monthlyOn($day = 1)
+    {
+        return $this->replaceIntoExpression(1, [0,0,$day]);
+    }
+
     public function replaceIntoExpression($position, $value)
     {
         $value = (array)$value;
