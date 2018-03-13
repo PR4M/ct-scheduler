@@ -33,10 +33,10 @@ use CT\Scheduler\Event;
 
 class YourEvent extends Event
 {
-   public function handle()
+    public function handle()
 	{
     	// your event code here..
-	} 
+	}
 }
 ```
 
@@ -95,6 +95,5 @@ $scheduler->add(new YourEvent())->friday()->everyMinute(); // Run on Friday, and
 
 ## License
 
-`see LICENSE.MD` 
-Licensed as [MIT License (MIT)]
+[MIT License](https://github.com/pramanadiputra/ct-scheduler/blob/master/LICENSE.md)
 
