@@ -6,10 +6,10 @@
  * Time: 7:04 PM
  */
 
-namespace App\Events;
+namespace CT\Events;
 
 
-use App\Scheduler\Event;
+use CT\Scheduler\Event;
 
 class SomeEvent extends Event
 {

@@ -7,8 +7,8 @@
  */
 
 use Carbon\Carbon;
-use App\Scheduler\Kernel;
-use App\Scheduler\Event;
+use CT\Scheduler\Kernel;
+use CT\Scheduler\Event;
 
 class KernelTest extends \PHPUnit\Framework\TestCase
 {

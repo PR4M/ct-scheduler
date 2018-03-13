@@ -7,7 +7,7 @@
  */
 
 use Carbon\Carbon;
-use App\Scheduler\Event;
+use CT\Scheduler\Event;
 
 class EventTest extends \PHPUnit\Framework\TestCase
 {

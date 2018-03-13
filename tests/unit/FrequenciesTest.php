@@ -6,7 +6,7 @@
  * Time: 10:04 PM
  */
 
-use App\Scheduler\Frequencies;
+use CT\Scheduler\Frequencies;
 
 class FrequenciesTest extends \PHPUnit\Framework\TestCase
 {

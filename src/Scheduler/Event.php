@@ -6,7 +6,7 @@
  * Time: 6:49 PM
  */
 
-namespace App\Scheduler;
+namespace CT\Scheduler;
 
 use Carbon\Carbon;
 use Cron\CronExpression;

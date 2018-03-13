@@ -6,7 +6,7 @@
  * Time: 10:02 PM
  */
 
-namespace App\Scheduler;
+namespace CT\Scheduler;
 
 
 trait Frequencies

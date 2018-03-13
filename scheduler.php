@@ -6,8 +6,10 @@
  * Time: 6:45 PM
  */
 
-use App\Scheduler\Kernel;
-use App\Events\SomeEvent;
+namespace CT;
+
+use CT\Scheduler\Kernel;
+use CT\Events\SomeEvent;
 
 require_once 'vendor/autoload.php';
 

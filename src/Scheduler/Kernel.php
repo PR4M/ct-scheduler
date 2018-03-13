@@ -6,7 +6,7 @@
  * Time: 8:42 AM
  */
 
-namespace App\Scheduler;
+namespace CT\Scheduler;
 
 
 use Carbon\Carbon;
