@@ -40,6 +40,10 @@ class YourEvent extends Event
 }
 ```
 
+**Usage Example** 
+
+See [PHP Telegram Reminder](https://github.com/pramanadiputra/php-telegram-reminder/). On SendReminderEvent.php. 
+
 ## Units of Time
 
 There are units of time that you can use to run tasks on your chosen basis. 
@@ -91,7 +95,7 @@ Run Every Minute on Friday
 $scheduler->add(new YourEvent())->friday()->everyMinute(); // Run on Friday, and every minute
 ```
 
-
+Notice that you can couple and decoupled it easily if you want to run it on Friday but in every minute.
 
 ## License
 
